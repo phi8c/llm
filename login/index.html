@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 6px;
+    }
+    input, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h3>Đăng nhập</h3>
+
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+
+  <button type="button" onclick="login()">Login</button>
+
+  <p id="msg"></p>
+</div>
+
+<script>
+  const SUPABASE_URL = "https://saucnwuittjgmkpqoltm.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable__TszTxqKdsnPdhmY7aP5Lg_ldiSB6lv";
+
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  async function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const msg = document.getElementById("msg");
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      msg.innerText = error.message;
+      return;
+    }
+
+    // LẤY TOKEN
+    const token = data.session.access_token;
+    console.log("in ra token", token)
+
+    // LƯU TOKEN VÀO COOKIE (Đây là phần quan trọng nhất)
+    // Thiết lập cookie có thời hạn 1 giờ, dùng cho toàn bộ domain
+    //document.cookie = `token=${token}; path=/; max-age=3600; SameSite=Lax`;
+
+    // Chuyển hướng sang Chainlit (không cần truyền token qua URL nữa để bảo mật)
+    //const token = data.session.access_token;
+// LƯU TOKEN (CHỈ VIỆC NÀY)
+localStorage.setItem("supabase_token", token);
+
+// CHUYỂN SANG CHAINLIT (KHÔNG TOKEN)
+window.location.href = `http://localhost:8000/?token=${token}`;
+  }
+</script>
+
+
+
+<script>
+function showToken() {
+  const token = localStorage.getItem("supabase_token");
+  alert(token);
+}
+</script>
+
+
+</body>
+</html>

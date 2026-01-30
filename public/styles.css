@@ -1,0 +1,48 @@
+/* ===== Common ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-frame {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  display: block;
+}
+
+/* ===== Login ===== */
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  background: white;
+  padding: 20px;
+  width: 320px;
+  border-radius: 8px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+/* ===== Chat ===== */
+.chat-frame {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+}

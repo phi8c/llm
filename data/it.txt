@@ -1,0 +1,125 @@
+QUY ĐỊNH VỀ CÔNG NGHỆ THÔNG TIN VÀ BẢO MẬT HỆ THỐNG
+
+ĐIỀU 1: QUY ĐỊNH SỬ DỤNG TÀI SẢN VÀ THIẾT BỊ CNTT
+1.1. Cấp phát thiết bị:
+- Nhân viên IT được cấp phát 01 Laptop cấu hình cao (MacBook Pro M1/M2 hoặc Dell XPS/ThinkPad dòng cao cấp) và 01 màn hình phụ (Monitor 24-27 inch).
+- Biên bản bàn giao tài sản phải được ký xác nhận giữa nhân viên và bộ phận IT Helpdesk.
+
+1.2. Trách nhiệm bảo quản:
+- Không được tự ý tháo lắp, thay thế linh kiện phần cứng (RAM, SSD) nếu không có sự đồng ý của Trưởng bộ phận IT.
+- Không được dán sticker lên màn hình hoặc vỏ máy (trừ trường hợp skin bảo vệ dễ bóc).
+- Mất mát hoặc hư hỏng do lỗi chủ quan (rơi vỡ, đổ nước) nhân viên phải bồi thường 100% giá trị sửa chữa hoặc thay mới.
+
+1.3. Cài đặt phần mềm:
+- Nghiêm cấm cài đặt các phần mềm Crack, phần mềm không có bản quyền, hoặc game online không phục vụ công việc.
+- Các phần mềm chuyên dụng (IntelliJ, Visual Studio, Adobe...) phải sử dụng License do công ty cấp.
+
+ĐIỀU 2: QUY ĐỊNH VỀ AN TOÀN THÔNG TIN (INFOSEC)
+2.1. Mật khẩu và Tài khoản:
+- Mật khẩu truy cập hệ thống phải có độ dài tối thiểu 12 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.
+- Bắt buộc đổi mật khẩu định kỳ 90 ngày/lần.
+- Tuyệt đối không chia sẻ tài khoản (Account Sharing) cho người khác, kể cả đồng nghiệp.
+- Bắt buộc kích hoạt xác thực 2 lớp (2FA) cho Email công ty, GitHub/GitLab, AWS/Cloud.
+
+2.2. Bảo mật dữ liệu:
+- Khi rời khỏi vị trí làm việc, nhân viên BẮT BUỘC phải khóa màn hình máy tính (Lock Screen: Windows + L hoặc Cmd + Ctrl + Q).
+- Không được sao chép Source Code (Mã nguồn) hoặc Dữ liệu khách hàng (Customer Data) ra thiết bị lưu trữ cá nhân (USB, ổ cứng ngoài, Google Drive cá nhân).
+- Dữ liệu nhạy cảm phải được mã hóa khi truyền tải qua Internet.
+
+2.3. Quy định sử dụng mạng và VPN:
+- Khi làm việc từ xa (WFH), nhân viên phải kết nối qua VPN công ty để truy cập vào Server nội bộ.
+- Không truy cập vào các trang web đen, web đánh bạc hoặc các trang chứa mã độc (Malware) bằng mạng công ty.
+
+ĐIỀU 3: QUY TRÌNH PHÁT TRIỂN PHẦN MỀM (SDLC & DEPLOYMENT)
+3.1. Quy tắc Git (Version Control):
+- Không commit trực tiếp vào nhánh `main` hoặc `master`.
+- Mọi thay đổi phải đi qua Pull Request (PR) và được ít nhất 1 đồng nghiệp (Reviewer) phê duyệt (Approve) mới được Merge.
+- Format commit message: [Ticket-ID] <Loại hành động>: <Mô tả ngắn gọn>. Ví dụ: "[JIRA-101] Feat: Add login page layout".
+
+3.2. Quy định Deploy (Triển khai):
+- Khung giờ cấm Deploy (Code Freeze): Từ 16:30 Thứ Sáu đến hết Chủ Nhật (để tránh lỗi hệ thống vào cuối tuần không có người sửa).
+- Môi trường Staging/UAT phải giống môi trường Production ít nhất 90% về cấu hình.
+- Phải có phương án Rollback (khôi phục) ngay lập tức nếu bản Deploy mới gây lỗi nghiêm trọng.
+
+DANH MỤC MÔ TẢ CÔNG VIỆC PHÒNG CÔNG NGHỆ (IT DEPT)
+
+VỊ TRÍ 1: BACKEND DEVELOPER (LẬP TRÌNH VIÊN BACKEND)
+1. Mô tả công việc:
+- Phân tích yêu cầu kỹ thuật và thiết kế kiến trúc hệ thống (System Architecture) phía Server.
+- Xây dựng và tối ưu hóa các RESTful APIs hoặc GraphQL để phục vụ cho Frontend và Mobile App.
+- Thiết kế Database (SQL/NoSQL), viết query tối ưu hiệu năng, đảm bảo tính toàn vẹn dữ liệu.
+- Tích hợp các dịch vụ bên thứ 3 (Payment Gateway, SMS Brandname, Cloud Storage...).
+- Viết Unit Test, Integration Test để đảm bảo chất lượng code trước khi release.
+
+2. Yêu cầu kỹ thuật (Stack):
+- Ngôn ngữ: Thành thạo một trong các ngôn ngữ: Java (Spring Boot), Python (Django/FastAPI), Node.js (NestJS), hoặc Golang.
+- Database: Có kiến thức sâu về PostgreSQL, MySQL hoặc MongoDB, Redis.
+- Hiểu biết về Microservices, Docker, Kubernetes là điểm cộng lớn.
+- Tư duy Logic tốt, nắm vững Cấu trúc dữ liệu và Giải thuật.
+
+VỊ TRÍ 2: FRONTEND DEVELOPER (LẬP TRÌNH VIÊN FRONTEND)
+1. Mô tả công việc:
+- Chuyển đổi thiết kế từ Figma/Adobe XD thành giao diện web tương tác (UI/UX).
+- Xây dựng các Reusable Components và Libraries để sử dụng lại cho nhiều dự án.
+- Tối ưu hóa tốc độ tải trang (Performance Optimization), đảm bảo chuẩn SEO và Responsive trên mọi thiết bị.
+- Xử lý các vấn đề về tương thích trình duyệt (Cross-browser compatibility).
+- Kết nối với Backend thông qua API để hiển thị dữ liệu động.
+
+2. Yêu cầu kỹ thuật (Stack):
+- Thành thạo HTML5, CSS3 (SASS/SCSS), JavaScript (ES6+).
+- Có kinh nghiệm làm việc với ReactJS, VueJS hoặc Angular.
+- Biết sử dụng State Management (Redux, Vuex, Zustand).
+- Có mắt thẩm mỹ tốt, chú trọng đến trải nghiệm người dùng (UX).
+
+VỊ TRÍ 3: BUSINESS ANALYST (CHUYÊN VIÊN PHÂN TÍCH NGHIỆP VỤ - IT BA)
+1. Mô tả công việc:
+- Làm việc trực tiếp với khách hàng hoặc Product Owner để khơi gợi, thu thập yêu cầu nghiệp vụ.
+- Phân tích và tư vấn giải pháp công nghệ phù hợp với bài toán kinh doanh.
+- Viết tài liệu đặc tả hệ thống: SRS (Software Requirements Specification), FRS, User Stories.
+- Vẽ các biểu đồ quy trình: Flowchart, BPMN, Sequence Diagram, Use Case Diagram.
+- Truyền đạt yêu cầu cho đội Dev và QA, hỗ trợ giải đáp thắc mắc trong quá trình phát triển (UAT).
+
+2. Yêu cầu kỹ năng:
+- Kỹ năng giao tiếp và đàm phán xuất sắc.
+- Tư duy phân tích, khả năng mô hình hóa dữ liệu.
+- Sử dụng thành thạo các công cụ: Jira, Confluence, Draw.io, Visio, Figma (cơ bản).
+- Có kiến thức nền tảng về SQL để tự truy xuất dữ liệu kiểm tra là một lợi thế.
+
+VỊ TRÍ 4: DEVOPS ENGINEER (KỸ SƯ VẬN HÀNH HỆ THỐNG)
+1. Mô tả công việc:
+- Xây dựng và quản lý quy trình CI/CD (Continuous Integration/Continuous Deployment) tự động hóa việc build và deploy code.
+- Quản trị hạ tầng Cloud (AWS, Azure, Google Cloud) hoặc Server vật lý.
+- Cấu hình và giám sát hệ thống (Monitoring & Alerting) sử dụng Prometheus, Grafana, ELK Stack.
+- Đảm bảo tính bảo mật và khả năng mở rộng (Scalability) của hệ thống khi lượng người dùng tăng cao.
+- Hỗ trợ team Dev xử lý các sự cố môi trường (Environment issues).
+
+2. Yêu cầu kỹ thuật:
+- Kinh nghiệm làm việc với Linux/Unix.
+- Thành thạo Docker, Kubernetes (K8s).
+- Biết viết Script (Bash, Python) để tự động hóa tác vụ.
+- Hiểu biết về Infrastructure as Code (Terraform, Ansible).
+
+VỊ TRÍ 5: QA/QC MANUAL & AUTOMATION (KIỂM THỬ PHẦN MỀM)
+1. Mô tả công việc:
+- Đọc tài liệu yêu cầu, lập kế hoạch kiểm thử (Test Plan) và viết Test Case.
+- Thực hiện kiểm thử thủ công (Manual Test) trên Web và Mobile App để tìm lỗi (Bug).
+- Log bug chi tiết lên hệ thống Jira và theo dõi tiến độ sửa lỗi của Dev.
+- Viết script cho Automation Test (sử dụng Selenium, Appium, Cypress...) để chạy regression test.
+- Đảm bảo sản phẩm không có lỗi nghiêm trọng trước khi bàn giao cho khách hàng.
+
+2. Yêu cầu kỹ năng:
+- Cẩn thận, tỉ mỉ, có tư duy phản biện (Critical Thinking).
+- Có kiến thức về API Testing (Postman).
+- Biết cơ bản về SQL để kiểm tra dữ liệu.
+- Với Automation: Cần biết ít nhất 1 ngôn ngữ lập trình (Java/Python/JS).
+
+VỊ TRÍ 6: IT HELPDESK (HỖ TRỢ KỸ THUẬT)
+1. Mô tả công việc:
+- Tiếp nhận và xử lý các sự cố máy tính, máy in, mạng, email của nhân viên văn phòng.
+- Cài đặt hệ điều hành (Windows, MacOS), phần mềm văn phòng và các công cụ làm việc.
+- Quản lý kho thiết bị CNTT, thực hiện bảo trì, bảo dưỡng định kỳ.
+- Quản trị hệ thống mạng nội bộ (LAN, Wifi), Camera giám sát, máy chấm công.
+
+2. Yêu cầu kỹ năng:
+- Hiểu biết tốt về phần cứng máy tính và xử lý sự cố mạng cơ bản (TCP/IP, DNS, DHCP).
+- Nhiệt tình, kiên nhẫn và có tinh thần dịch vụ (Customer Service mindset).

@@ -1,0 +1,5 @@
+chainlit==2.9.5
+asyncpg
+psycopg2-binary
+supabase
+python-dotenv

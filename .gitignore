@@ -1,0 +1,14 @@
+# Bỏ qua thư mục tạm của Visual Studio (Sửa lỗi Permission denied)
+.vs/
+.vscode/
+
+# Bỏ qua môi trường ảo Python (Rất nặng, không up lên)
+venv/
+env/
+.chainlit/config.toml
+# Bỏ qua file rác khi chạy code Python
+__pycache__/
+*.pyc
+
+# Bỏ qua file chứa mật khẩu/key (QUAN TRỌNG)
+.env
